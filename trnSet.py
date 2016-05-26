@@ -49,3 +49,4 @@ def trnSet():
 		nonBinding = aminoacids.remove(currentAm)
 		for n in range (len(nonBinding))
 			
+			
