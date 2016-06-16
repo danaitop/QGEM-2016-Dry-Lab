@@ -1,7 +1,8 @@
-#def energySet(): 
-'''For this to work you need to install this script and your A domain (chainAA.pdb) in the same folder.
-It will create one .pdb file and one modified .resfile for each A domain mutated as per Stachelhaus code,
-and output to binding.csv and nonbinding.csv. '''
+'''For this to work you need to install this script, the D070_Refinement.py script, and create a folder titled ".test.output"
+which will contain your A domain (chainAA.pdb), all in the same directory. This will produce pdb structures for each A domain 
+mutated as per Stachelhaus code,as well as structures denoted by "_job_" that are the output of the refinement script. The ΔGs 
+will be output to binding.csv and nonbinding.csv. 
+To test, use the shorter testing aminoacids list!!'''
 from rosetta import *
 init()
 from toolbox import *
@@ -14,7 +15,7 @@ from D070_Refinement import sample_refinement
 aminoacids = ["PHE","ALA","ASN","ASP","CYS","GLN","GLU","ILE","LEU","PRO","SER","THR","TYR","VAL"]
 oneletter = {'ALA': 'A','ARG':'R','ASN':'N','ASP':'D','CYS':'C','GLU':'E','GLN':'Q','GLY':'G','HIS_D':'H','ILE':'I','LEU':'L','LYS':'K','MET':'M','PHE':'F','PRO':'P','SER':'S','THR':'T','TRP':'W','TYR':'Y','VAL':'V'}
 #Used for testing:
-#aminoacids = ["PHE","ALA","ASN","ASP","CYS","PRO"]
+#aminoacids = ["PHE","ALA","PRO"]
 scorefxn = get_fa_scorefxn()
 domain = pose_from_pdb("chainAA.pdb") #PHE domain
 mutDom = Pose()
